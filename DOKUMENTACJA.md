@@ -279,6 +279,60 @@ specjalistów od mączki czy trawy.
 
 ---
 
+## 6a. Jak działa uczenie maszynowe w tym projekcie
+
+**Uczenie maszynowe** to poddziedzina sztucznej inteligencji. Nie piszemy
+żadnych reguł ręcznie — nie mówimy programowi „jeśli zawodnik ma lepszy
+ranking, to wygra". Pokazujemy mu tysiące rozegranych meczów, a on sam
+znajduje zależności.
+
+### Jak model się uczy — cztery kroki
+
+**1. Cechy i odpowiedź.** Każdy mecz zamieniamy na zestaw liczb (*cechy*),
+np. różnicę Elo, różnicę rankingu, rodzaj nawierzchni. Do tego dokładamy
+*odpowiedź*, której szukamy — czy zawodnik A wygrał.
+
+**2. Trenowanie.** Model na starcie zgaduje. Dla każdego meczu porównuje swoją
+odpowiedź z prawdziwą i koryguje **wagi** — liczby mówiące, jak mocno każda
+cecha wpływa na wynik. Powtarza to tysiące razy, aż błąd przestaje maleć.
+Tak wygląda „uczenie się": dopasowywanie wag, żeby pomyłek było jak najmniej.
+
+**3. Testowanie.** Model sprawdzamy na meczach, **których nigdy nie widział**.
+Inaczej mierzylibyśmy tylko, jak dobrze zapamiętał dane uczące.
+
+**4. Punkt odniesienia.** Liczba typu „65% trafień" nic nie znaczy bez
+porównania. Przy zgadywaniu zwycięzcy punktem odniesienia jest 50%, czyli
+rzut monetą.
+
+### Dwa rodzaje uczenia, oba w projekcie
+
+**Uczenie nadzorowane** — znamy prawidłowe odpowiedzi i model uczy się je
+odtwarzać. Dzieli się na **klasyfikację** (odpowiedź to kategoria: kto wygra)
+i **regresję** (odpowiedź to liczba: ile asów).
+
+**Uczenie nienadzorowane** — nie mamy żadnych odpowiedzi. Model dostaje same
+dane i szuka w nich struktury. U nas: sam dzieli zawodników na style gry,
+chociaż nikt nie powiedział mu, czym jest „serwisant".
+
+### Algorytmy w jednym zdaniu
+
+**Regresja logistyczna** — każdej cesze przypisuje wagę, mnoży cechy przez wagi
+i sumuje; wynik przepuszcza przez funkcję ściskającą dowolną liczbę do
+przedziału od 0 do 1, i tak powstaje prawdopodobieństwo.
+
+**Regresja liniowa** — to samo mnożenie i sumowanie, ale wynikiem jest zwykła
+liczba. Odpowiada na pytanie „o ile wzrośnie liczba asów, jeśli serwujący jest
+o 10 cm wyższy".
+
+**KMeans** — losuje kilka punktów jako środki grup, przypisuje każdego
+zawodnika do najbliższego środka, przesuwa środki na średnią swojej grupy
+i powtarza, aż nic się nie zmienia.
+
+**Gaussian Mixture** — miękka wersja KMeans. Zamiast przypisać do jednej grupy,
+podaje procentową przynależność do każdej.
+
+---
+
 ## 7. KROK 4 — `model.py` (klasyfikacja: kto wygra)
 
 Typ problemu: **klasyfikacja binarna**. Odpowiedź to „tak" albo „nie".
