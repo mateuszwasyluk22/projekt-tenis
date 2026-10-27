@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Analiza meczów tenisa ATP</title>
+  <style>
+    /* prosty wygląd strony */
+    body { font-family: Arial, sans-serif; max-width: 950px; margin: 30px auto; padding: 0 15px; color: #222; }
+    h1 { text-align: center; }
+    h2 { border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 45px; }
+    img { width: 100%; border: 1px solid #ddd; }
+    p.opis { color: #555; }
+    footer { margin-top: 50px; font-size: 13px; color: #777; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Analiza meczów tenisa ATP</h1>
+  <p style="text-align:center">Projekt zaliczeniowy &middot; Systemy Sztucznej Inteligencji</p>
+
+  <h2>1. Liczba meczów wg nawierzchni</h2>
+  <p class="opis">Rozkład meczów w zbiorze danych.</p>
+  <img src="wyniki/wykres_nawierzchnie.png" alt="Liczba meczów wg nawierzchni">
+
+  <h2>2. Asy wg nawierzchni</h2>
+  <p class="opis">Średnia liczba asów na 100 punktów serwisowych.</p>
+  <img src="wyniki/wykres_asy.png" alt="Asy wg nawierzchni">
+
+  <h2>3. TOP 10 zawodników</h2>
+  <p class="opis">Ranking wg liczby wygranych meczów.</p>
+  <img src="wyniki/wykres_ranking.png" alt="TOP 10 zawodników">
+
+  <h2>4. TOP 10 wg nawierzchni</h2>
+  <p class="opis">Osobny ranking dla kortu twardego, mączki i trawy.</p>
+  <img src="wyniki/wykres_top10.png" alt="TOP 10 wg nawierzchni">
+
+  <h2>5. Korelacje między statystykami</h2>
+  <p class="opis">Wartości od -1 do 1. Bliżej zera oznacza brak związku.</p>
+  <img src="wyniki/wykres_korelacje.png" alt="Macierz korelacji">
+
+  <h2>6. Asy wg ręki przeciwnika</h2>
+  <p class="opis">Czy przeciwko leworęcznym pada więcej asów?</p>
+  <img src="wyniki/wykres_reka.png" alt="Asy wg ręki przeciwnika">
+
+  <h2>7. Ranking Elo w czasie</h2>
+  <p class="opis">Forma pięciu najlepszych zawodników. Elo reaguje na każdy mecz.</p>
+  <img src="wyniki/wykres_elo.png" alt="Ranking Elo w czasie">
+
+  <h2>8. Wyniki modelu</h2>
+  <p class="opis">Regresja logistyczna, test na najnowszych meczach.</p>
+  <ul>
+    <li>tylko ranking ATP: <b>__ %</b></li>
+    <li>tylko Elo: <b>__ %</b></li>
+    <li>wszystko razem: <b>__ %</b></li>
+  </ul>
+  <p class="opis">Liczby przepisz z pliku <code>wyniki_modelu.txt</code>.</p>
+
+  <footer>
+    Dane: Jeff Sackmann (tennis_atp), licencja CC BY-NC-SA 4.0
+  </footer>
+
+</body>
+</html>

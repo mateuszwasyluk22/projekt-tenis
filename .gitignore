@@ -1,0 +1,12 @@
+# dane zrodlowe - nie wrzucamy do repo (licencja + rozmiar)
+dane/*.csv
+
+# duze pliki wynikowe
+wyniki/*.csv
+
+# smieci Pythona
+__pycache__/
+*.pyc
+
+# smieci systemowe
+.DS_Store

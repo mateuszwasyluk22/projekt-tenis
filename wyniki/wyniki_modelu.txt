@@ -1,0 +1,3 @@
+Tylko ranking ATP -> 64.79 %
+Tylko Elo -> 65.1 %
+Wszystko razem -> 65.1 %
